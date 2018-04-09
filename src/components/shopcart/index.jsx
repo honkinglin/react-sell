@@ -117,7 +117,8 @@ export default class Shopcart extends React.Component {
         this.setState({ fold: !this.state.fold });
     }
     // 支付
-    pay() {
+    pay(e) {
+        e.stopPropagation();
         if (this.totalPrice < this.minPrice) return;
         window.alert(`支付${this.totalPrice() + this.props.deliveryPrice}元`);
     }
@@ -152,7 +153,7 @@ export default class Shopcart extends React.Component {
     payDesc() {
         if (this.totalPrice() === 0) {
             return `￥${this.props.minPrice}元起送`;
-        } else if (this.state.totalPrice < this.props.minPrice) {
+        } else if (this.totalPrice() < this.props.minPrice) {
             let diff = this.props.minPrice - this.totalPrice();
             return `还差￥${diff}元起送`;
         } else {

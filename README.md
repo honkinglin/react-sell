@@ -20,6 +20,7 @@
 ![img](./public/sell1.gif)
 ![img](./public/sell2.gif)
 ![img](./public/sell3.gif)
+![img](./public/sell4.gif)
 
 ### 关于代码、资源、项目搭建
 本项目使用sass + react + react-router + axios  
@@ -28,7 +29,7 @@
 资源方面不用说也知道，当然是用慕课上vue高仿饿了么项目的资源。   
 项目搭建这块，本来想的是使用官方的create-react-app模版。  
 后来感觉使用起来不太自由，不好定制，于是就用自己搭建的环境开发。  
-搭建项目可以查看我的一篇个人博客 => `https://segmentfault.com/a/1190000011824338`
+搭建项目可以查看我的一篇个人博客 => [手把手教你搭建react环境](https://segmentfault.com/a/1190000011824338)
 
 ### 展望
 目前这个项目的复杂度还属于demo级别，不过随之我对react的理解的提升。  
@@ -38,7 +39,7 @@
 还有个最最重要的坑！！！小球抛物线动画没有实现，目前还在研究中一定会实现的！
 
 ### 传送门
-正版vue高仿饿了么项目 => `https://github.com/ustbhuangyi/vue-sell`  
+[正版vue高仿饿了么项目](https://github.com/ustbhuangyi/vue-sell)  
 
 ### 感谢
 喜欢的同学可以顺手给个star支持一下，谢谢！！
