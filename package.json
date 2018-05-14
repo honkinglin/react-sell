@@ -1,8 +1,8 @@
 {
-    "name": "react-env",
+    "name": "react-sell",
     "version": "1.0.0",
-    "description": "",
-    "main": "app/index.jsx",
+    "description": "this is a demo for react",
+    "main": "src/index.jsx",
     "scripts": {
         "start": "npm run dev",
         "dev": "webpack-dev-server --hot --config build/webpack.conf.dev.js",
@@ -19,9 +19,11 @@
         "react": "^16.3.1",
         "react-dom": "^16.3.1",
         "react-redux": "^5.0.7",
-        "react-router-dom": "^4.2.2"
+        "react-router-dom": "^4.2.2",
+        "redux": "^4.0.0"
     },
     "devDependencies": {
+        "ajv": "^6.5.0",
         "autoprefixer": "^8.2.0",
         "babel-core": "^6.26.0",
         "babel-loader": "^7.1.2",
@@ -30,7 +32,8 @@
         "babel-preset-react-hmre": "^1.1.1",
         "babel-preset-stage-1": "^6.24.1",
         "css-loader": "^0.28.7",
-        "eslint-plugin-react": "^7.7.0",
+        "eslint": "^4.19.1",
+        "eslint-plugin-react": "^7.8.2",
         "extract-text-webpack-plugin": "^3.0.2",
         "file-loader": "^1.1.5",
         "html-webpack-plugin": "^2.30.1",
@@ -51,5 +54,9 @@
         "> 1%",
         "last 2 versions",
         "not ie <= 8"
-    ]
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:HQ-Lin/react-sell.git"
+    }
 }

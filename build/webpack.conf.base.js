@@ -56,7 +56,7 @@ const webpackBaseConfig = function (NODE_ENV = 'development') {
                 template: path.resolve(__dirname, '../public/index.tpl.html'),
                 filename: 'index.html'
             }),
-            new ExtractText('css/app.css?[hash:8]', {
+            new ExtractText('css/app.[hash:8].css', {
                 allChunks: true,
             }),
         ]
