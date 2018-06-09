@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractText = require('extract-text-webpack-plugin');
 
 const webpackBaseConfig = function (NODE_ENV = 'development') {
 
@@ -26,27 +25,40 @@ const webpackBaseConfig = function (NODE_ENV = 'development') {
                     use: ['babel-loader']
                 },
                 {
-                    test: /\.(sass|scss|css)$/,
-                    use: ExtractText.extract({
-                        // publicPath: '',
-                        fallback: 'style-loader',
-                        use: [
-                            'css-loader',
-                            'postcss-loader',
-                            'sass-loader?outputStyle=expanded'
-                        ]
-                    })
-                },
-                {
-                    test: /\.(png|jpe?g|gif|svg|webp|ttf|eot|woff|woff2)/,
+                    test: /\.(png|jpe?g|gif|webp)$/,
                     loader: 'url-loader',
                     query: {
-                        limit: 10000,
+                        limit: 5000,
                         name: '[name].[ext]?[hash:8]',
                         outputPath: 'images/',
                         // publicPath: config.publicPath,
                         // useRelativePath: false,
                     }
+                },
+                {
+                    test: /\.(svg|ttf|eot|woff|woff2)$/,
+                    loader: 'url-loader',
+                    exclude: [
+                        path.resolve(__dirname, '../src', '../src/assets', '../src/components'),
+                    ],
+                    query: {
+                        limit: 5000,
+                        name: '[name].[ext]?[hash:8]',
+                        outputPath: 'fonts/',
+                        // publicPath: config.publicPath,
+                        // useRelativePath: false,
+                    }
+                },
+                {
+                    test: /\.svg$/,
+                    loader: 'svg-sprite-loader',
+                    include: [
+                        path.resolve(__dirname, '../src', '../src/assets', '../src/components'),
+                    ],
+                    query: {
+                        name: '[name]',
+                        esModule: false,
+                    },
                 }
             ]
         },
@@ -55,9 +67,6 @@ const webpackBaseConfig = function (NODE_ENV = 'development') {
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, '../public/index.tpl.html'),
                 filename: 'index.html'
-            }),
-            new ExtractText('css/app.[hash:8].css', {
-                allChunks: true,
             }),
         ]
     };

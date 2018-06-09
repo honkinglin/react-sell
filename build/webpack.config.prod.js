@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const ExtractText = require('extract-text-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV = process.env.BABEL_ENV = 'production';
 
@@ -17,7 +18,26 @@ const webpackConfig = merge(webpackBaseConfig, {
         // 添加文件hash
         filename: 'js/[name].[chunkhash:8].js'
     },
+    module: {
+        rules: [
+            {
+                test: /\.(sass|scss|css)$/,
+                use: ExtractText.extract({
+                    // publicPath: '',
+                    fallback: 'style-loader',
+                    use: [
+                        'css-loader',
+                        'postcss-loader',
+                        'sass-loader?outputStyle=expanded'
+                    ]
+                })
+            },
+        ]
+    },
     plugins: [
+        new ExtractText('[name].[contenthash].css', {
+            allChunks: true,
+        }),
         // 开启js压缩
         new webpack.optimize.UglifyJsPlugin({
             compress: {

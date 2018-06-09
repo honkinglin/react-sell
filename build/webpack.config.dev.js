@@ -38,7 +38,20 @@ const webpackConfig = merge(webpackBaseConfig, {
         port: 8099,
         host: '0.0.0.0',
     },
-    devtool: 'source-map'
+    devtool: 'source-map',
+    module: {
+        rules: [
+            {
+                test: /\.(scss|css)$/,
+                use: [
+                    {loader: 'style-loader'},
+                    {loader: 'css-loader'},
+                    {loader: 'postcss-loader?sourceMap'},
+                    {loader: 'sass-loader'},
+                ]
+            },
+        ]
+    }
 });
 
 module.exports = webpackConfig;
