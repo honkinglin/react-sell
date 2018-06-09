@@ -4,7 +4,7 @@ const merge = require('webpack-merge');
 
 const NODE_ENV = process.env.NODE_ENV = process.env.BABEL_ENV = 'production';
 
-const webpackBaseConfig = require('./webpack.conf.base.js')(NODE_ENV);
+const webpackBaseConfig = require('./webpack.config.base.js')(NODE_ENV);
 
 const webpackConfig = merge(webpackBaseConfig, {
     entry: {

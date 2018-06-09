@@ -3,7 +3,7 @@ const merge = require('webpack-merge');
 
 const NODE_ENV = process.env.NODE_ENV = process.env.BABEL_ENV = 'development';
 
-const webpackBaseConfig = require('./webpack.conf.base.js')(NODE_ENV);
+const webpackBaseConfig = require('./webpack.config.base.js')(NODE_ENV);
 
 const appData = require('../data.json');
 const seller = appData.seller;
