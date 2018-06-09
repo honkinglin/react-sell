@@ -6,7 +6,7 @@
     "scripts": {
         "start": "npm run dev",
         "dev": "webpack-dev-server --hot --config build/webpack.config.dev.js --progress",
-        "build": "npm run clean && webpack --config build/webpack.config.prod.js --progress --hide-modules --debug",
+        "build": "npm run clean && webpack --config build/webpack.config.prod.js --progress --hide-modules",
         "clean": "rimraf dist"
     },
     "keywords": [],
