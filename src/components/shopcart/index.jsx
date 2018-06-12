@@ -139,6 +139,8 @@ export default class Shopcart extends React.Component {
     // 小球
     drop(el) {
         console.log('el', el);
+        const rect = el.getBoundingClientRect();
+        console.log('rect', rect);
         console.log('小球动画效果！！暂未实现！！待我研究研究!');
     }
     // 展示结算样式
