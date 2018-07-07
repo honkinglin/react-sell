@@ -10,7 +10,7 @@ const webpackBaseConfig = require('./webpack.config.base.js')(NODE_ENV);
 const webpackConfig = merge(webpackBaseConfig, {
     entry: {
         app: path.join(__dirname, '../src/index.jsx'),
-        vendor: ['react', 'react-router-dom', 'better-scroll', 'react-dom', 'axios', 'es6-promise', 'redux', 'react-redux']
+        vendor: ['react', 'react-router-dom', 'better-scroll', 'react-dom', 'axios', 'es6-promise']
     },
     // 定义出口文件
     output: {
