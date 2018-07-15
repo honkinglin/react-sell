@@ -1,7 +1,7 @@
 import '@assets/scss/index';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Header from './components/header';
@@ -57,8 +57,8 @@ App.childContextTypes = {
 };
 
 ReactDOM.render(
-    <BrowserRouter>
+    <HashRouter>
         <App />
-    </BrowserRouter>,
+    </HashRouter>,
     document.getElementById('App')
 );
