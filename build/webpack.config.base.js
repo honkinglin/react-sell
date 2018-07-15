@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const webpackBaseConfig = function (NODE_ENV = 'development') {
@@ -67,6 +68,9 @@ const webpackBaseConfig = function (NODE_ENV = 'development') {
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, '../public/index.tpl.html'),
                 filename: 'index.html'
+            }),
+            new webpack.DefinePlugin({
+                'process.env.NODE_ENV': `"${NODE_ENV}"`,
             }),
         ]
     };
