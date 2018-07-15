@@ -1,9 +1,11 @@
 import '@assets/scss/index';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Header from './components/header';
+import Tab from './components/tab';
 import RouterMap from './router';
 
 import {getSeller} from '@api';
@@ -40,10 +42,13 @@ export class App extends React.Component {
     }
 
     render() {
-        return [
-            <Header key='header' seller={this.state.seller} />,
-            <RouterMap seller={this.state.seller} key='routerMap'/>
-        ];
+        return (
+            <React.Fragment>
+                <Header key='header' seller={this.state.seller} />
+                <Tab key="tab" />
+                <RouterMap seller={this.state.seller} key='routerMap'/>
+            </React.Fragment>
+        );
     }
 }
 
@@ -51,4 +56,9 @@ App.childContextTypes = {
     seller: PropTypes.object
 };
 
-ReactDOM.render(<App />, document.getElementById('App'));
+ReactDOM.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
+    document.getElementById('App')
+);
