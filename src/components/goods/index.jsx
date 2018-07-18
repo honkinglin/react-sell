@@ -50,7 +50,7 @@ export default class Goods extends React.Component {
                 <div className="menu-wrapper" ref="menuWrapper">
                     <ul>
                         {
-                            this.state.goods.length && this.state.goods.map((item, index) => (
+                            this.state.goods.length > 0 && this.state.goods.map((item, index) => (
                                 <li className={'menu-item' + (this.currentIndex()===index ? ' current' : '')}
                                     onClick={(ev) => {this.selectMenu(index, ev);}} ref={(node) => {this.state.menuList[index] = node;}} key={'menuList' + index}>
                                     <span className="text border-1px">
@@ -63,7 +63,7 @@ export default class Goods extends React.Component {
                 <div className="foods-wrapper" ref="foodsWrapper">
                     <ul>
                         {
-                            this.state.goods.length && this.state.goods.map((item, index) => (
+                            this.state.goods.length > 0 && this.state.goods.map((item, index) => (
                                 <li className="food-list food-list-hook" ref={(node) => {this.state.foodList[index] = node;}} key={'foodList' + index}>
                                     <h1 className="title">{item.name}</h1>
                                     <ul>

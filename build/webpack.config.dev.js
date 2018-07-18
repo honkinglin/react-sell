@@ -1,4 +1,3 @@
-const path = require('path');
 const merge = require('webpack-merge');
 
 const NODE_ENV = process.env.NODE_ENV = process.env.BABEL_ENV = 'development';
@@ -34,9 +33,7 @@ const webpackConfig = merge(webpackBaseConfig, {
         },
         historyApiFallback: true,
         inline: true,
-        contentBase: path.resolve(__dirname, '../dist/'),
         port: 8099,
-        host: '0.0.0.0',
         open: true
     },
     devtool: 'source-map',

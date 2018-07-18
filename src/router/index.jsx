@@ -9,9 +9,9 @@ export default class RouterMap extends React.Component {
     render() {
         return (
             <Switch>
-                <Route path='/goods' component={Goods} />
-                <Route path='/ratings' component={Ratings} />
-                <Route path='/seller' component={Seller} />
+                <Route exact path='/goods' component={Goods} />
+                <Route exact path='/ratings' component={Ratings} />
+                <Route exact path='/seller' component={Seller} />
                 <Redirect to='/goods' />
             </Switch>
         );

@@ -11,6 +11,8 @@ import RouterMap from './router';
 import {getSeller} from '@api';
 import {urlParse} from '@assets/js/util';
 
+import './sw.js';
+
 export class App extends React.Component {
     constructor(props) {
         super(props);

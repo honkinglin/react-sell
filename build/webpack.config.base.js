@@ -66,8 +66,10 @@ const webpackBaseConfig = function (NODE_ENV = 'development') {
         // 添加插件
         plugins: [
             new HtmlWebpackPlugin({
+                filename: 'index.html',
+                favicon: path.resolve(__dirname, '../public/favicon.ico'),
                 template: path.resolve(__dirname, '../public/index.tpl.html'),
-                filename: 'index.html'
+                manifest: NODE_ENV === 'development' ? '/public/manifest.json' : `/react-sell/public/manifest.json`
             }),
             new webpack.DefinePlugin({
                 'process.env.NODE_ENV': `"${NODE_ENV}"`,
