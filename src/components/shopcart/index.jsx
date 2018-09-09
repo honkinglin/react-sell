@@ -7,17 +7,9 @@ import CartControl from '../cartcontrol';
 export default class Shopcart extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            balls: [
-                { show: false },
-                { show: false },
-                { show: false },
-                { show: false },
-                { show: false }
-            ],
-            dropBalls: [],
-            fold: true
-        };
+        this.state = { fold: true };
+        this.ball = React.createRef();
+        this.innerBall = React.createRef();
     }
 
     componentDidMount() {
@@ -58,14 +50,8 @@ export default class Shopcart extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="ball-container">
-                    {
-                        this.state.balls.map((ball, index) => (
-                            <div className="ball" style={ball.show ? {} : {display: 'none'}} key={'ball' + index}>
-                                <div className="inner inner-hook"></div>
-                            </div>
-                        ))
-                    }
+                <div className="ball" ref={this.ball} onTransitionEnd={this.resetTrans.bind(this)}>
+                    <div className="inner" ref={this.innerBall}></div>
                 </div>
                 <div className={'shopcart-list' + (!this.state.fold ? ' fade' : '')}>
                     <div className="list-header">
@@ -82,7 +68,7 @@ export default class Shopcart extends React.Component {
                                             <span>￥{food.price*food.count}</span>
                                         </div>
                                         <div className="cartcontrol-wrapper">
-                                            <CartControl add={(event) => {this.addFood(event);}} food={food} />
+                                            <CartControl add={this.addFood.bind(this)} cut={this.cutFood.bind(this)} food={food} />
                                         </div>
                                     </li>
                                 ))
@@ -133,15 +119,36 @@ export default class Shopcart extends React.Component {
     }
     // 添加商品
     addFood(e) {
-        // this.drop(e);
         this.props.add(e);
+    }
+    // 删除商品
+    cutFood(e) {
+        this.props.cut(e);
     }
     // 小球
     drop(el) {
-        console.log('el', el);
+        this.resetTrans();
         const rect = el.getBoundingClientRect();
-        console.log('rect', rect);
-        console.log('小球动画效果！！暂未实现！！待我研究研究!');
+        const rx = rect.left - 28;
+        const ry = window.innerHeight - rect.top - 20;
+
+        this.ball.current.style.visibility = 'visible';
+        this.ball.current.style.left = `${rect.left}px`;
+        this.ball.current.style.top = `${rect.top}px`;
+        this.ball.current.style.transform = `translate(-${rx}px, 0)`;
+        this.ball.current.style.transition = 'transform .5s linear';
+
+        this.innerBall.current.style.transform = `translate(0, ${ry}px)`;
+        this.innerBall.current.style.transition = 'transform 0.5s cubic-bezier(0.5, -0.5, 1, 1)';
+    }
+    // 重置小球状态
+    resetTrans() {
+        this.ball.current.style.visibility = 'hidden';
+        this.ball.current.style.transform = 'none';
+        this.ball.current.style.transition = 'none';
+
+        this.innerBall.current.style.transform = 'none';
+        this.innerBall.current.style.transition = 'none';
     }
     // 展示结算样式
     payClass() {

@@ -117,22 +117,15 @@
         }
     }
 
-    .ball-container {
-        .ball {
-            position: fixed;
-            left: 32px;
-            bottom: 22px;
-            z-index: 200;
-            transition: all 0.4s cubic-bezier(0.49, -0.29, 0.75, 0.41);
-            z-index: -1;
+    .ball {
+        position: fixed;
+        z-index: 200;
 
-            .inner {
-                width: 16px;
-                height: 16px;
-                border-radius: 50%;
-                background: rgb(0, 160, 220);
-                transition: all 0.4s linear;
-            }
+        .inner {
+            width: 16px;
+            height: 16px;
+            background: #00a0dc;
+            border-radius: 50%;
         }
     }
 

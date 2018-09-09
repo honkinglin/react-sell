@@ -83,7 +83,10 @@ export default class Goods extends React.Component {
                                                             <span className="now">￥{food.price}</span><span className='old' style={food.oldPrice ? {} : {display: 'none'}}>￥{food.oldPrice}</span>
                                                         </div>
                                                         <div className="cartcontrol-wrapper">
-                                                            <CartControl add={(e) => {this.addFood(e);}} food={food} />
+                                                            <CartControl
+                                                                add={this.addFood.bind(this)}
+                                                                cut={this.cutFood.bind(this)}
+                                                                food={food} />
                                                         </div>
                                                     </div>
                                                 </li>
@@ -97,6 +100,7 @@ export default class Goods extends React.Component {
                 </div>
                 <ShopCart ref="shopcart"
                     add={this.addFood.bind(this)}
+                    cut={this.cutFood.bind(this)}
                     empty={this.empty.bind(this)}
                     selectFoods={this.state.selectFoods}
                     deliveryPrice={this.context.seller.deliveryPrice}
@@ -179,6 +183,11 @@ export default class Goods extends React.Component {
         this.selectFoods();
         this.forceUpdate();
         this._drop(e.target);
+    }
+    cutFood() {
+        // 强制组件更新 直接进入第6步
+        this.selectFoods();
+        this.forceUpdate();
     }
     // 清空购物车
     empty() {

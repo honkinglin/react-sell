@@ -24,7 +24,7 @@ export default class CartControl extends React.Component {
         if (this.props.food.count) {
             this.props.food.count--;
         }
-        this.props.add(e);
+        this.props.cut(e);
     }
 
     addCart(e) {

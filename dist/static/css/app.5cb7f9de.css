@@ -1427,23 +1427,16 @@ body, html {
   color: #fff;
 }
 
-.shopcart .ball-container .ball {
+.shopcart .ball {
   position: fixed;
-  left: 32px;
-  bottom: 22px;
   z-index: 200;
-  -webkit-transition: all 0.4s cubic-bezier(0.49, -0.29, 0.75, 0.41);
-  transition: all 0.4s cubic-bezier(0.49, -0.29, 0.75, 0.41);
-  z-index: -1;
 }
 
-.shopcart .ball-container .ball .inner {
+.shopcart .ball .inner {
   width: 16px;
   height: 16px;
-  border-radius: 50%;
   background: #00a0dc;
-  -webkit-transition: all 0.4s linear;
-  transition: all 0.4s linear;
+  border-radius: 50%;
 }
 
 .shopcart .shopcart-list {
