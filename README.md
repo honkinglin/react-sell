@@ -23,8 +23,6 @@
 打开本地端口`0.0.0.0:8099`
 
 ### 作品展示
-[在线演示](https://hq-lin.github.io/react-sell/dist/#/goods)
-
 ![img](./public/sell1.gif)
 ![img](./public/sell2.gif)
 ![img](./public/sell3.gif)
@@ -60,3 +58,7 @@
 ### 感谢
 
 喜欢的同学可以顺手给个star支持一下，谢谢！！
+
+[在线演示](https://hq-lin.github.io/react-sell/dist/#/goods)
+
+![img](./public/ewm.png)
