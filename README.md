@@ -61,4 +61,4 @@
 
 [在线演示](https://.github.io/react-sell/dist/#/goods)
 
-![img](./public/ewm.png)
+![img](./public/ewm.jpg)
