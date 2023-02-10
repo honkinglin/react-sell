@@ -59,6 +59,6 @@
 
 喜欢的同学可以顺手给个star支持一下，谢谢！！
 
-[在线演示](https://hq-lin.github.io/react-sell/dist/#/goods)
+[在线演示](https://.github.io/react-sell/dist/#/goods)
 
 ![img](./public/ewm.png)
