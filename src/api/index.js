@@ -1,24 +1,11 @@
-import io from './io';
-const mock = require('../../data.json');
+import { get } from './helpers'
 
-const isDev = process.env.NODE_ENV === 'development';
+const getSeller = get('api/seller')
+const getGoods = get('api/goods')
+const getRatings = get('api/ratings')
 
-export function getSeller(url, params = {}) {
-    return isDev ? io.get('/api/seller', params) : getData(mock.seller);
-}
-
-export function getGoods(url, params = {}) {
-    return isDev ? io.get('/api/goods', params) : getData(mock.goods);
-}
-
-export function getRatings(url, params = {}) {
-    return isDev ? io.get('/api/ratings', params) : getData(mock.ratings);
-}
-
-function getData(data) {
-    return new Promise((resolve, _reject) => {
-        resolve({
-            data: { data, error: 0 }
-        });
-    });
+export {
+  getSeller,
+  getGoods,
+  getRatings
 }
